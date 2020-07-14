@@ -1,25 +1,20 @@
 var mic;
-let context;
 
-window.onload = function() {
-    // context = new AudioContext();
-}
-
+/*
+ * Important note: It seems like it only works for Microsoft Edge
+ */
 function init() {
-    // context.resume().then(function () {
-    //     console.log('resumed successfully.')
-    // });
-
-    createCanvas(400, 400);
+    createCanvas(window.innerWidth, window.innerHeight);
     document.getElementById("button").style.display = "none";
     mic = new p5.AudioIn();
     mic.start();
-    setInterval(draw, 100);
+    setInterval(draw, 10);
 }
 
 function draw() {
     background(0);
     var vol = mic.getLevel();
     console.log(vol);
-    ellipse(100, 100, vol * 200, vol * 200);
+    ellipse(window.innerWidth/2, window.innerHeight/2,
+        vol * window.innerWidth, vol * window.innerWidth);
 }
