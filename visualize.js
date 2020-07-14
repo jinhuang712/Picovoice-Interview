@@ -1,11 +1,15 @@
 var mic;
+let context;
 
 window.onload = function() {
-    window.AudioContext = new AudioContext();
-    window.AudioContext.resume();
+    // context = new AudioContext();
 }
 
 function init() {
+    // context.resume().then(function () {
+    //     console.log('resumed successfully.')
+    // });
+
     createCanvas(400, 400);
     document.getElementById("button").style.display = "none";
     mic = new p5.AudioIn();
